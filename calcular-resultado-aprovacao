@@ -1,0 +1,26 @@
+Sub CalcularResultadoNotas()
+
+    Dim nome As String
+    Dim nota As Integer
+    
+    nome = InputBox("Digite seu nome:")                        ' caixa de texto para inserir o nome do usuário
+    Range("b3") = nome                                         ' defina um espaço na sua planilha para guardar o nome, sugestão: uma tabela de 3 colunas com 1 cabeçalho e 1 linha
+    
+    nota = InputBox("Digite sua nota:")                        ' caixa de texto para inserir a nota do usuário
+    Range("c3").Value = nota                                   ' salva a nota em célula pré-estabelecida (C3)
+
+    Select Case Range("c3")                                    ' função usada para retornar vários resultados diferentes, dependendo da nota. Neste caso: "Ótimo", "Bom" e "Insuficiente".
+        Case ""      
+            Range("d3") = "Digite um valor"  
+      
+        Case Is >= 9    
+            Range("d3") = "Ótimo"  
+      
+        Case Is >= 7        
+            Range("d3") = "Bom"
+      
+        Case Is < 7        
+            Range("d3") = "Insuficiente"
+    End Select
+    
+End Sub
